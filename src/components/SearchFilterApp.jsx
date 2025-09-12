@@ -9,7 +9,8 @@ import anithaImg from "../assets/Anitha.jpg";
 
 const SearchFilterApp = () => {
   const [input, setInput] = useState("");
-
+  const [movieName, setMovieName] = useState("");
+  const [movieList, setMovieList] = useState([]);
   const NameList = [
     {
       id: "1",
@@ -62,6 +63,8 @@ const SearchFilterApp = () => {
     }
   }, [input]);
 
+  const searchMovieHandle = async () => {};
+
   return (
     <div className="h-full flex flex-col px-20 mb-10">
       <div className="search-app flex flex-col gap-y-3 max-w-7xl">
@@ -88,6 +91,50 @@ const SearchFilterApp = () => {
                 <p className="text-gray-800 text-md">{list.name}</p>
               </div>
             </div>
+          ))}
+        </div>
+      </div>
+      <div className="movie-app flex flex-col gap-y-3 max-w-7xl">
+        <h3 className="font-semibold text-2xl mt-10 mb-5">
+          2. Search Filter by Movie using API
+        </h3>
+        <form
+          className="flex justify-center items-center"
+          onSubmit={searchMovieHandle}
+        >
+          <input
+            type="text"
+            placeholder="Search movie"
+            className="max-w-xl w-full pl-5 border border-green-500 h-10"
+            value={movieName}
+            name="movieName"
+            onChange={(e) => setInput(e.target.value)}
+          />
+          <button
+            type="submit"
+            className="px-10 py-2 bg-black text-white rounded-r-md"
+          >
+            {" "}
+            Submit
+          </button>
+        </form>
+
+        <div className="grid grid-cols-1 md:grid-cols-3 lg:grid-cols-4 lg:gap-6 gap-3 mt-10">
+          {movieList.map((item) => (
+            <card key={item.id}>
+              <div className="rounded-t-md">
+                <img
+                  className="object-cover w-full h-80 rounded-t-md"
+                  src={item.image}
+                  alt
+                />
+              </div>
+              <div className="bg-gray-200 flex flex-col gap-1 py-5 rounded-b-md">
+                <p className="text-base font-medium">{item.name}</p>
+                <p className="text-gray-700 text-sm">{item.desc}</p>
+                <p className="text-md font-normal">{item.year}</p>
+              </div>
+            </card>
           ))}
         </div>
       </div>
