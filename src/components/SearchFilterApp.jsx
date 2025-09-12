@@ -6,6 +6,7 @@ import mathanImg from "../assets/Mathan.jpg";
 import sarveshImg from "../assets/Sarvesh.jpg";
 import krishnaImg from "../assets/Krishnan.jpg";
 import anithaImg from "../assets/Anitha.jpg";
+import axios from "axios";
 
 const SearchFilterApp = () => {
   const [input, setInput] = useState("");
@@ -63,7 +64,19 @@ const SearchFilterApp = () => {
     }
   }, [input]);
 
-  const searchMovieHandle = async () => {};
+  const searchMovieHandle = async (e) => {
+    e.preventDefault();
+    try {
+      const response = await axios.get(
+        `https://api.themoviedb.org/3/discover/movie?api_key=7076dcc65497f0c127b05d81daf4b8c9&language=en-US&with_original_language=ta&sort_by=popularity.desc&page=1`
+      );
+      if (response.data) {
+        console.log(response);
+      }
+    } catch (err) {
+      console.log(err);
+    }
+  };
 
   return (
     <div className="h-full flex flex-col px-20 mb-10">
