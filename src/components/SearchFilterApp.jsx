@@ -48,6 +48,11 @@ const SearchFilterApp = () => {
       image: anithaImg,
       name: "Anitha",
     },
+    {
+      id: "8",
+      image: anithaImg,
+      name: "Anitha",
+    },
   ];
   const [search, setSearch] = useState(NameList);
 
