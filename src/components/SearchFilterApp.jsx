@@ -77,9 +77,11 @@ const SearchFilterApp = () => {
           `https://api.themoviedb.org/3/discover/movie?api_key=7076dcc65497f0c127b05d81daf4b8c9&language=en-US&with_original_language=ta&sort_by=popularity.desc&page=1`
         );
         if (response.data) {
-          console.log(response.data);
-          setMovieList(response.data.results);
-          setFilterList(response.data.results);
+          const ratingFiltered = response.data.results.filter(
+            (movie) => movie.vote_average !== 0
+          );
+          setMovieList(ratingFiltered);
+          setFilterList(ratingFiltered);
         }
       } catch (err) {
         console.log(err);

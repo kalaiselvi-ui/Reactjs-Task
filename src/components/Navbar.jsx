@@ -9,8 +9,8 @@ const Navbar = () => {
       </Link>
       <ul class="md:flex hidden items-center gap-10">
         <li>
-          <Link class="hover:text-gray-500/80 transition" to="/counter-app">
-            Counter App
+          <Link class="hover:text-gray-500/80 transition" to="/expense-tracker">
+            Expense Tracker
           </Link>
         </li>
         <li>
@@ -24,7 +24,7 @@ const Navbar = () => {
           </Link>
         </li>
         <li>
-          <Link class="hover:text-gray-500/80 transition" to="">
+          <Link class="hover:text-gray-500/80 transition" to="/cart">
             Shopping Cart
           </Link>
         </li>
